@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Alla mia mamma ❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff0f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            color: #c2185b;
+        }
+        .heart {
+            font-size: 2rem;
+            color: #e91e63;
+            animation: beat 1s infinite;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        #message {
+            max-width: 600px;
+            margin: 20px;
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 10px;
+        }
+        button {
+            background: #c2185b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #a0174d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Alla mia mamma <span class="heart">❤️</span></h1>
+    <div id="message">
+        <p>Mamma,<br>
+        sei il mio primo abbraccio quando il mondo fa paura e il mio rifugio sicuro quando tutto sembra difficile. Sei la voce che mi calma, le mani che mi sostengono e il sorriso che mi ricorda che andrà tutto bene.</p>
+
+        <p>Hai trasformato ogni sacrificio in amore silenzioso, ogni fatica in forza per me. Mi hai insegnato a credere nei miei sogni, ad avere coraggio e a non smettere mai di essere me stessa/o.</p>
+
+        <p>Se oggi sono ciò che sono, è perché tu mi hai donato radici forti e ali per volare.<br>
+        Grazie per esserci sempre, per il tuo cuore immenso e per l’amore infinito che solo una mamma sa dare.</p>
+
+        <p>Ti voglio bene oltre ogni parola. 💖</p>
+    </div>
+
+    <img id="momImage" src="https://via.placeholder.com/400x300?text=Mamma" alt="Immagine di mamma"/>
+
+    <div>
+        <button onclick="playMusic()">🎵 Riproduci musica</button>
+        <button onclick="swapImage()">📷 Cambia immagine</button>
+    </div>
+
+    <audio id="bgMusic" src="https://www.bensound.com/bensound-music/bensound-sweet.mp3"></audio>
+
+    <script>
+        function playMusic() {
+            const music = document.getElementById('bgMusic');
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+
+        const images = [
+            'https://via.placeholder.com/400x300?text=Mamma+1',
+            'https://via.placeholder.com/400x300?text=Mamma+2',
+            'https://via.placeholder.com/400x300?text=Mamma+3'
+        ];
+        let current = 0;
+        function swapImage() {
+            current = (current + 1) % images.length;
+            document.getElementById('momImage').src = images[current];
+        }
+    </script>
+</body>
+</html>
