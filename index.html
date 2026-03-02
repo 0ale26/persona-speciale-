@@ -72,13 +72,23 @@
 
     <div>
         <button onclick="playMusic()">🎵 Riproduci musica</button>
+        <button onclick="switchSong()">⏭️ Cambia canzone</button>
         <button onclick="swapImage()">📷 Cambia immagine</button>
     </div>
 
     <!-- added controls so user can play/stop and adjust volume -->
-    <audio id="bgMusic" src="https://www.bensound.com/bensound-music/bensound-sweet.mp3" controls></audio>
+    <audio id="bgMusic" controls></audio>
 
     <script>
+        // Playlist di canzoni
+        const songs = [
+            'https://www.bensound.com/bensound-music/bensound-sweet.mp3',
+            'https://www.bensound.com/bensound-music/bensound-sunny.mp3',
+            'https://www.bensound.com/bensound-music/bensound-memories.mp3'
+        ];
+
+        let currentSong = 0;
+
         function playMusic() {
             const music = document.getElementById('bgMusic');
             if (music.paused) {
@@ -87,6 +97,19 @@
                 music.pause();
             }
         }
+
+        function switchSong() {
+            const music = document.getElementById('bgMusic');
+            currentSong = (currentSong + 1) % songs.length;
+            music.src = songs[currentSong];
+            music.load();
+            music.play();
+        }
+
+        // Carica la prima canzone al caricamento
+        window.addEventListener('load', function() {
+            document.getElementById('bgMusic').src = songs[0];
+        });
 
         const images = [
             'https://via.placeholder.com/400x300?text=Mamma+1',
