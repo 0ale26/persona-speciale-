@@ -67,14 +67,16 @@
         <p>Ti voglio bene oltre ogni parola. 💖</p>
     </div>
 
-    <img id="momImage" src="https://via.placeholder.com/400x300?text=Mamma" alt="Immagine di mamma"/>
+    <!-- immagine realistica riferita a una mamma -->
+    <img id="momImage" src="https://images.unsplash.com/photo-1533649440527-958264c5ec51?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Immagine di mamma"/>
 
     <div>
         <button onclick="playMusic()">🎵 Riproduci musica</button>
         <button onclick="swapImage()">📷 Cambia immagine</button>
     </div>
 
-    <audio id="bgMusic" src="https://www.bensound.com/bensound-music/bensound-sweet.mp3"></audio>
+    <!-- added controls so user can play/stop and adjust volume -->
+    <audio id="bgMusic" src="https://www.bensound.com/bensound-music/bensound-sweet.mp3" controls></audio>
 
     <script>
         function playMusic() {
